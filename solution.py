@@ -10,36 +10,36 @@ mailserver = 'smtp.nyu.edu'
 clientSocket = socket(AF_INET, SOCK_STREAM)
 clientSocket.connect((mailserver, 25))
 recv = clientSocket.recv(1025)
-print(recv)
+#print(recv)
 if recv[:3] != '220':
-    print('220 reply not received from server.')
+    #print('220 reply not received from server.')
 # Send HELO command and print server response.
-heloCommand = 'HELO Alice\r\n'
+    heloCommand = 'HELO Alice\r\n'
 clientSocket.send(heloCommand.encode('utf-8'))
 recv1 = clientSocket.recv(1025)
-print(recv1)
+#print(recv1)
 #Send MAIL FROM command and print server response.
-print('Sending MAIL FROM Command')
+#print('Sending MAIL FROM Command')
 clientSocket.send(b"MAIL From: bappy1122@gmail.com\r\n")
 recv2 = clientSocket.recv(1025)
 #Send RCPT TO command and print server response.
-print("Sending RCPT TO Command")
+#print("Sending RCPT TO Command")
 clientSocket.send(b"RCPT TO: ms12871@nyu.edu\r\n")
 recv2 = clientSocket.recv(1025)
-print(recv2)
+#print(recv2)
 #Send DATA command and print server response.
-print("Sending DATA Command")
+#print("Sending DATA Command")
 clientSocket.send(b"DATA\r\n")
 recv2 = clientSocket.recv(1025)
-print(recv2)
+#print(recv2)
 #Send Data and print server response.
-print("Sending Data")
+#print("Sending Data")
 clientSocket.send(b"SUBJECT: SMTP Mail Client Test\n"+msg.encode('utf-8')+b"\n.\n\r\n")
 recv2 = clientSocket.recv(1025)
-print(recv2)
+#print(recv2)
 #Send QUIT and print server response.
-print("Sending QUIT")
+#print("Sending QUIT")
 clientSocket.send(b"QUIT\r\n")
 recv2 = clientSocket.recv(1025)
-print(recv2)
-print("Mail Sent")
+#print(recv2)
+#print("Mail Sent")
