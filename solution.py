@@ -35,6 +35,7 @@ recv2 = clientSocket.recv(1024)
 #print(recv2)
 #Send Data and print server response.
 #print("Sending Data")
+msg = 'I love computer networking'
 clientSocket.send(b"SUBJECT: SMTP Mail Client Test\n"+msg.encode('utf-8')+b"\n.\n\r\n")
 recv2 = clientSocket.recv(1024)
 #print(recv2)
